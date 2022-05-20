@@ -1,0 +1,174 @@
+﻿<Window x:Class="Client.ChatWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Client"
+        mc:Ignorable="d"
+        Title="ChatWindow" Height="400" Width="500" Loaded="ChatWindowLoaded" Closed="Window_Closed"
+        AllowsTransparency="True" Background="Transparent"
+        WindowStyle="None" ResizeMode="NoResize"
+        MouseDown="Window_MouseDown">
+    <Grid>
+        <!--Background color and rounded corners-->
+        <Border CornerRadius="15" Grid.RowSpan="2">
+            <Border.Background>
+                <LinearGradientBrush>
+                    <GradientStop Color="#02aab0" Offset="0.0"/>
+                    <GradientStop Color="#00cdac" Offset="1.0" />
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+
+        <StackPanel Orientation="Vertical">
+
+            <StackPanel Orientation="Horizontal">
+                <!--Connect Button-->
+                <Button x:Name="btnConnect"
+                        Content="Connect"
+                        Height="40"
+                        Margin="10,10,0,0"
+                        FontFamily="Helvetica"
+                        FontSize="16"
+                        Width="68"
+                        Click="btnConnect_Click"/>
+
+                <!--You are signed in as ...-->
+                <TextBlock x:Name="connectedToTheServerAs"
+                           Text=""
+                           FontSize="16"
+                           FontFamily="Helvetica"
+                           Width="352"
+                           TextWrapping="Wrap"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"
+                           TextAlignment="Center"
+                           Margin="10, 10,0,0"
+                           Foreground="Black"
+                           FontWeight="Bold"/>
+
+                <!--Close button-->
+                <Button Click="CloseButton_Click"
+                        Height="40"
+                        Width="40"
+                        Content="╳"
+                        FontSize="20"
+                        Margin="10 10 0 0"/>
+            </StackPanel>
+
+            <!--List of users Label-->
+            <StackPanel Orientation="Horizontal">
+
+                <Label Content="Chat Log:"
+                       FontSize="16"
+                       FontFamily="Helvetica"
+                       Foreground="White"
+                       Height="30"
+                       Width="90"
+                       Margin="10,10,0,0"/>
+
+                <Label Content="List of Users:"
+                       FontSize="16"
+                       FontFamily="Helvetica"
+                       Foreground="White"
+                       Width="100"
+                       Height="30"
+                       Margin="295,10,0,0"/>
+            </StackPanel>
+
+            <!--Main box and User list-->
+            <StackPanel Orientation="Horizontal">
+                <TextBox x:Name="txtStatus"
+                         FontFamily="Helvetica"
+                         FontSize="16"
+                         Height="160" Margin="10,10,0,0"
+                         TextWrapping="Wrap"
+                         Text=""
+                         Width="380"
+                         HorizontalAlignment="Left"
+                         VerticalAlignment="Top"
+                         Background="Transparent"
+                         BorderThickness="3"
+                         BorderBrush="White"
+                         IsReadOnly="True"/>
+
+                <ListBox Name="listbox"
+                         FontFamily="Helvetica"
+                         FontSize="16"
+                         Height="160"
+                         Margin="10,10,0,0"
+                         Width="90"
+                         VerticalAlignment="Top"
+                         Background="Transparent"
+                         BorderThickness="3"
+                         BorderBrush="White"/>
+            </StackPanel>
+
+            <Label Content="Type your message here:"
+                   FontSize="16"
+                   FontFamily="Helvetica"
+                   Foreground="White"
+                   Width="340"
+                   Height="30"
+                   Margin="10,0,0,0"
+                   HorizontalAlignment="Left"/>
+
+            <!--Text message box, send button, browse button, clear chat log-->
+            <StackPanel Orientation="Horizontal">
+                <!--Text message box-->
+                <TextBox x:Name="txtMessage"
+                         FontSize="16"
+                         FontFamily="Helvetica"
+                         Height="60"
+                         Margin="10,0,0,0"
+                         HorizontalAlignment="Left"
+                         VerticalAlignment="Top"
+                         TextWrapping="Wrap"
+                         Width="270"
+                         PreviewMouseLeftButtonDown="txtMessage_PreviewMouseLeftButtonDown"
+                         Background="Transparent"
+                         BorderThickness="3"
+                         BorderBrush="White"/>
+
+                <!--Send button-->
+                <Button x:Name="btnSend"
+                        Content="Send"
+                        FontSize="16"
+                        Height="60"
+                        Margin="10,0,0,0"
+                        VerticalAlignment="Top"
+                        Width="60"
+                        Click="btnSend_Click"/>
+
+                <!--Browse button-->
+                <Button Content="Browse"
+                        HorizontalAlignment="Left"
+                        Height="60"
+                        Margin="10,0,0,0"
+                        VerticalAlignment="Top"
+                        Width="60"
+                        Click="btnBrowse_Click"/>
+
+                <!--Clear chat log button-->
+                <Button x:Name="Clear"
+                        Content="Clear"
+                        FontSize="16"      
+                        Height="60"
+                        Width="60"
+                        Margin="10,0,0,0"
+                        VerticalAlignment="Top"
+                        Click="Click_clear"/>
+            </StackPanel>
+
+            <!--Footer-->
+            <Label Content="Veer Singh © 2021 | Built with ❤"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Bottom"
+                   Margin="0,20,0,0"
+                   Height="30"
+                   Foreground="White"
+                   Opacity="0.5"/>
+
+        </StackPanel>
+    </Grid>
+</Window>
