@@ -18,7 +18,7 @@ namespace Client
 
         IFirebaseClient client;
 
-        private void NewUserForm_Load(object sender, EventArgs e)
+        private void ConnectClient()
         {
             client = new FireSharp.FirebaseClient(fCon);
         }
@@ -28,66 +28,28 @@ namespace Client
             InitializeComponent();
         }
 
-        private void Submit(object sender, RoutedEventArgs e) //When the user presses the submit button
+        private async void Submit(object sender, RoutedEventArgs e) //When the user presses the submit button
         {
-            String newUser = this.newuser.Text;
-            String newPassword = this.newpassword.Password;
+            ConnectClient();
 
             User user = new User()
             {
-                UserName = "rares",
-                Password = "rares"
+                UserName = this.newuser.Text,
+                Password = this.newpassword.Password
             };
+            
+            // Check if the User already exists
+            FirebaseResponse r = await client.GetAsync("UserList/"+this.newuser.Text);
 
-            var setter = client.Set("UserList/"+1, this.newuser);
+            User u = r.ResultAs<User>();
 
-            //NewUserCreation(newUser, newPassword);
-        }
-        
-        private void NewUserCreation(String username, String password) //Creates a new user and saves the data to the local database
-        {
-            String check = null;
-
-            String connectionString = "datasource = localhost; username = root; password = 1234; database = loginnames";
-
-            MySqlConnection connection = new MySqlConnection(connectionString);
-            MySqlCommand cmd;
-            MySqlDataReader reader;
-
-            try
+            if (u == null)
             {
-                connection.Open();
-                cmd = new MySqlCommand("SELECT * FROM users WHERE username = '" + username + "';", connection);
-                reader = cmd.ExecuteReader();
-
-                while (reader.Read())
-                {
-                    check = reader[0].ToString();
-                }
-
-                if (check != null)
-                {
-                    MessageBox.Show("username already exists!");
-                    this.newuser.Text = "";
-                    this.newpassword.Password = "";
-                }
-                else
-                {
-                    reader.Close();
-                    cmd = new MySqlCommand("INSERT into users VALUES('" + username + "','" + password + "' ,'0');", connection);
-                    cmd.ExecuteNonQuery();
-                    connection.Close();
-                    MessageBox.Show("Successful Creation of username " + username + "!");
-
-                    MainWindow backtoNorm = new MainWindow();
-                    backtoNorm.Show();
-                    Close();
-
-                }
+                SetResponse response = await client.SetAsync("UserList/"+this.newuser.Text, user);
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("The user with the username " + this.newuser.Text + " already exists!");
             }
         }
 
