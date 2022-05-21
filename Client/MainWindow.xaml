@@ -65,10 +65,10 @@
                          Opacity="0.5"
                          Height="35"
                          Width="275"
-                         Margin="300,0,0,0"
+                         Margin="380,0,0,0"
                          PreviewMouseLeftButtonDown="ClearUsername"
                     />
-                <Image Source="/Images/username.png" Width="35" Margin="-450,0,0,0"/>
+                <Image Source="/Images/username.png" Width="35" Margin="-610,0,0,0"/>
 
 
             </StackPanel>
@@ -95,10 +95,10 @@
                          Opacity="0.5"
                          Height="35"
                          Width="275"
-                         Margin="310,10,0,0"
+                         Margin="385,10,0,0"
                          PreviewMouseLeftButtonDown="ClearPassword"
                     />
-                <Image Source="/Images/password.png" Width="35" Margin="-470,5,0,0"/>
+                <Image Source="/Images/password.png" Width="35" Margin="-620,10,0,0"/>
                 
             </StackPanel>
             

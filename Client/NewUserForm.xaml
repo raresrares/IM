@@ -10,7 +10,11 @@
         WindowStyle="None" ResizeMode="NoResize"
         MouseDown="Window_MouseDown">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="7*"/>
+            <ColumnDefinition Width="993*"/>
+        </Grid.ColumnDefinitions>
+
         <!--Split grid in 2 rows-->
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -18,7 +22,7 @@
         </Grid.RowDefinitions>
 
         <!--Background color and rounded corners-->
-        <Border CornerRadius="15" Grid.RowSpan="2">
+        <Border CornerRadius="15" Grid.RowSpan="2" Grid.ColumnSpan="2">
             <Border.Background>
                 <LinearGradientBrush>
                     <GradientStop Color="#F8B195" Offset="0.0"/>
@@ -28,7 +32,7 @@
         </Border>
 
         <!--Row 0-->
-        <StackPanel Grid.Row="0">
+        <StackPanel Grid.Row="0" Grid.ColumnSpan="2">
 
             <!--Go back and close buttons-->
             <StackPanel Orientation="Horizontal">
@@ -55,12 +59,12 @@
                        Foreground="White"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"/>
-            
+
         </StackPanel>
 
         <!--Row 1-->
-        <StackPanel Grid.Row="1">
-            
+        <StackPanel Grid.Row="1" Grid.ColumnSpan="2">
+
             <!--New Username-->
             <StackPanel Orientation="Horizontal">
                 <TextBox x:Name="newuser"
@@ -76,10 +80,10 @@
                          Opacity="0.5"
                          Height="35"
                          Width="275"
-                         Margin="370,10,0,0"
+                         Margin="450,10,0,0"
                          PreviewMouseLeftButtonDown="ClearUsername"
                     />
-                <Image Source="/Images/username.png" Width="35" Margin="-600,0,0,0"/>
+                <Image Source="/Images/username.png" Width="35" Margin="-750,0,0,0"/>
             </StackPanel>
             <!--Underline for username-->
             <Border Width="300"
@@ -104,10 +108,10 @@
                          Opacity="0.5"
                          Height="35"
                          Width="275"
-                         Margin="370,10,0,0"
+                         Margin="450,10,0,0"
                          PreviewMouseLeftButtonDown="ClearPassword"
                     />
-                <Image Source="/Images/password.png" Width="35" Margin="-600,5,0,0"/>
+                <Image Source="/Images/password.png" Width="35" Margin="-750,5,0,0"/>
             </StackPanel>
             <!--Underline for password-->
             <Border Width="300"
@@ -120,7 +124,7 @@
             <StackPanel Orientation="Horizontal" Margin="0 50 0 0">
                 <Button Click="Submit"
                         Width="140"
-                        Height="45"
+                        Height="50"
                         Content="REGISTER"
                         Margin="450,0, 0, 0"
                         FontSize="30"/>
@@ -135,7 +139,7 @@
                    Height="70"
                    Foreground="White"
                    Opacity="0.5"/>
-            
+
         </StackPanel>
     </Grid>
 </Window>
