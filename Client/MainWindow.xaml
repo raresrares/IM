@@ -39,7 +39,7 @@
 
             <!--LOGIN title-->
             <TextBlock Text="LOGIN"
-                       FontFamily="Calibri"
+                       FontFamily="Montserrat"
                        FontWeight="Medium"
                        FontSize="70"
                        Foreground="White"
@@ -53,7 +53,7 @@
             <!--Username-->
             <StackPanel Orientation="Horizontal">
                 <TextBox x:Name="usernameBox"
-                         FontFamily="Calibri"
+                         FontFamily="Montserrat"
                          FontWeight="Light"
                          FontSize="30"
                          Text="Username"
@@ -61,14 +61,14 @@
                          Background="Transparent"
                          BorderThickness="0"
                          HorizontalAlignment="Center"
-                         HorizontalContentAlignment="Left"
+                         HorizontalContentAlignment="Center"
                          Opacity="0.5"
                          Height="35"
                          Width="275"
-                         Margin="100,0,0,0"
+                         Margin="300,0,0,0"
                          PreviewMouseLeftButtonDown="ClearUsername"
                     />
-                <Image Source="/Images/username.png" Width="35"/>
+                <Image Source="/Images/username.png" Width="35" Margin="-450,0,0,0"/>
 
 
             </StackPanel>
@@ -83,7 +83,7 @@
             <StackPanel Orientation="Horizontal">
                 <PasswordBox 
                          x:Name="passwordBox"
-                         FontFamily="Helvetica"
+                         FontFamily="Montserrat"
                          FontWeight="Light"
                          FontSize="30"
                          Password="Password"
@@ -91,14 +91,14 @@
                          Background="Transparent"
                          BorderThickness="0"
                          HorizontalAlignment="Center"
-                         HorizontalContentAlignment="Left"
+                         HorizontalContentAlignment="Center"
                          Opacity="0.5"
-                         Height="25"
+                         Height="35"
                          Width="275"
-                         Margin="100,10,0,0"
+                         Margin="310,10,0,0"
                          PreviewMouseLeftButtonDown="ClearPassword"
                     />
-                <Image Source="/Images/password.png" Width="35"/>
+                <Image Source="/Images/password.png" Width="35" Margin="-470,5,0,0"/>
                 
             </StackPanel>
             
@@ -115,13 +115,13 @@
                         Width="130"
                         Height="50"
                         Content="LOGIN"
-                        Margin="250,0,0,0"
+                        Margin="300,0,0,0"
                         FontSize="26"/>
                 <Button Click="UserForm"
                         Width="130"
                         Height="50"
                         Content="REGISTER"
-                        Margin="250,0,100,0"
+                        Margin="180,0,100,0"
                         FontSize="26"/>
             </StackPanel>
 

@@ -48,7 +48,7 @@
 
             <!--NEW USER FORM title-->
             <TextBlock Text="NEW USER REGISTRATION"
-                       FontFamily="Calibri"
+                       FontFamily="Montserrat"
                        Margin="0,75,0,0"
                        FontWeight="Medium"
                        FontSize="70"
@@ -64,10 +64,10 @@
             <!--New Username-->
             <StackPanel Orientation="Horizontal">
                 <TextBox x:Name="newuser"
-                         FontFamily="Calibri"
+                         FontFamily="Montserrat"
                          FontWeight="Light"
                          FontSize="30"
-                         Text="New Username"
+                         Text="Username"
                          Foreground="White"
                          Background="Transparent"
                          BorderThickness="0"
@@ -76,10 +76,10 @@
                          Opacity="0.5"
                          Height="35"
                          Width="275"
-                         Margin="100,10,0,0"
+                         Margin="370,10,0,0"
                          PreviewMouseLeftButtonDown="ClearUsername"
                     />
-                <Image Source="/Images/username.png" Width="35"/>
+                <Image Source="/Images/username.png" Width="35" Margin="-600,0,0,0"/>
             </StackPanel>
             <!--Underline for username-->
             <Border Width="300"
@@ -92,10 +92,10 @@
             <StackPanel Orientation="Horizontal">
                 <PasswordBox 
                          x:Name="newpassword"
-                         FontFamily="Calibri"
+                         FontFamily="Montserrat"
                          FontWeight="Light"
                          FontSize="30"
-                         Password="NewPassword"
+                         Password="Password"
                          Foreground="White"
                          Background="Transparent"
                          BorderThickness="0"
@@ -104,24 +104,24 @@
                          Opacity="0.5"
                          Height="35"
                          Width="275"
-                         Margin="100,10,0,0"
+                         Margin="370,10,0,0"
                          PreviewMouseLeftButtonDown="ClearPassword"
                     />
-                <Image Source="/Images/password.png" Width="35"/>
+                <Image Source="/Images/password.png" Width="35" Margin="-600,5,0,0"/>
             </StackPanel>
             <!--Underline for password-->
             <Border Width="300"
                     Height="2"
                     Background="White"
                     Opacity="1"
-                    Margin="50,0,0,0"/>
+                    Margin="60,0,0,0"/>
 
             <!-- Submit button -->
             <StackPanel Orientation="Horizontal" Margin="0 50 0 0">
                 <Button Click="Submit"
                         Width="140"
-                        Height="40"
-                        Content="SUBMIT"
+                        Height="45"
+                        Content="REGISTER"
                         Margin="450,0, 0, 0"
                         FontSize="30"/>
             </StackPanel>
