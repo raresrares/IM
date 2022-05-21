@@ -108,5 +108,12 @@
   <ItemGroup>
     <Resource Include="Icons-Land-Vista-Hardware-Devices-Home-Server.ico" />
   </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Images\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="logo.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

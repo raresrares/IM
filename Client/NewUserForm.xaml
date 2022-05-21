@@ -114,7 +114,7 @@
                     Height="2"
                     Background="White"
                     Opacity="1"
-                    Margin="60,0,0,0"/>
+                    Margin="50,0,0,0"/>
 
             <!-- Submit button -->
             <StackPanel Orientation="Horizontal" Margin="0 50 0 0">

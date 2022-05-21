@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Server"
         mc:Ignorable="d"
-        Title="Sever" Height="400" Width="500"
+        Title="Sever" Height="600" Width="1000"
         AllowsTransparency="True" Background="Transparent"
         WindowStyle="None" ResizeMode="NoResize"
         MouseDown="Window_MouseDown"
@@ -15,8 +15,8 @@
         <Border CornerRadius="15" Grid.RowSpan="2">
             <Border.Background>
                 <LinearGradientBrush>
-                    <GradientStop Color="#ff512f" Offset="0.0"/>
-                    <GradientStop Color="#dd2476" Offset="1.0" />
+                    <GradientStop Color="#FD5602" Offset="0.0"/>
+                    <GradientStop Color="#FFAF42" Offset="1.0" />
                 </LinearGradientBrush>
             </Border.Background>
         </Border>
@@ -24,46 +24,45 @@
         <StackPanel Orientation="Vertical">
             
             <!--Start, Stop, and close buttons-->
-            <StackPanel Orientation="Horizontal" Height="60">
+            <StackPanel Orientation="Horizontal" Height="90">
                 <Button x:Name="btnStart"
                         Content="Start Server"
-                        Height="40"
-                        Margin="10,10,0,0"
+                        Height="60"
+                        FontFamily="Montserrat"
+                        Margin="20,20,0,0"
                         HorizontalAlignment="Left"
                         VerticalAlignment="Center"
-                        Width="100"
+                        Width="170"
                         Click="btnStart_Click"
-                        FontSize="16"/>
+                        FontSize="30"/>
 
                 <Button x:Name="btnStop"
                         Content="Stop"
-                        FontFamily="Helvetica"  
+                        FontFamily="Montserrat"  
                         HorizontalAlignment="Left"
-                        Height="40"
-                        Margin="10,10,0,0"
+                        Height="60"
+                        Margin="620,20,0,0"
                         VerticalAlignment="Center"
-                        Width="100"
+                        Width="170"
                         Click="btnStop_Click"
-                        FontSize="16"/>
+                        FontSize="30"/>
 
                 <!--Close button-->
                 <Button Click="CloseButton_Click"
-                        Height="40"
-                        Width="40"
-                        Content="╳"
-                        FontSize="20"
-                        Margin="230 10 0 0"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Center"/>
+                  Height="40"
+                    Width="40"
+                    Content="╳"
+                    FontSize="20"
+                    Margin="900, 10 ,0 ,0"/>
             </StackPanel>
 
             
             <TextBox x:Name="txtStatus"
-                     FontFamily="Helvetica"
-                     FontSize="16"
-                     Height="290"
-                     Width="480"
-                     Margin="10,10,10,10"
+                     FontFamily="Montserrat"
+                     FontSize="24"
+                     Height="400"
+                     Width="680"
+                     Margin="10,30,10,10"
                      TextWrapping="Wrap"
                      Text=""
                      VerticalAlignment="Top"
@@ -71,12 +70,12 @@
                      BorderThickness="3"
                      BorderBrush="White"
                      IsReadOnly="True"/>
-
+            <Image Source="/logo.png" Width="200" Height="200" Margin="-900,-90,0,0"/>
             <!--Footer-->
-            <Label Content="Veer Singh © 2021 | Built with ❤"
+            <Label Content="Instant Messenger"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Bottom"
-                   Margin="0,0,0,0"
+                   Margin="0,30,0,0"
                    Height="30"
                    Foreground="White"
                    Opacity="0.5"/>
