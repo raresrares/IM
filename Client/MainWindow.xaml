@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Client"
         mc:Ignorable="d"
-        Title="MainWindow" Height="400" Width="500"
+        Title="MainWindow" Height="600" Width="1000"
         AllowsTransparency="True" Background="Transparent"
         WindowStyle="None" ResizeMode="NoResize"
         MouseDown="Window_MouseDown">
@@ -20,11 +20,12 @@
         <Border CornerRadius="15" Grid.RowSpan="2">
             <Border.Background>
                 <LinearGradientBrush>
-                    <GradientStop Color="#02aab0" Offset="0.0"/>
-                    <GradientStop Color="#00cdac" Offset="1.0" />
+                    <GradientStop Color="#F8B195" Offset="0.0"/>
+                    <GradientStop Color="#FF8303" Offset="1.0" />
                 </LinearGradientBrush>
             </Border.Background>
         </Border>
+       
 
         <!--Row 0-->
         <StackPanel Grid.Row="0">
@@ -34,16 +35,17 @@
                     Width="40"
                     Content="╳"
                     FontSize="20"
-                    Margin="440 10 0 0"/>
-            
+                    Margin="940, 10 ,0 ,0"/>
+
             <!--LOGIN title-->
             <TextBlock Text="LOGIN"
-                       FontFamily="Helvetica"
+                       FontFamily="Calibri"
                        FontWeight="Medium"
-                       FontSize="50"
+                       FontSize="70"
                        Foreground="White"
                        HorizontalAlignment="Center"
-                       VerticalAlignment="Center"/>
+                       VerticalAlignment="Center"
+                       Margin="0,50,0,0"/>
         </StackPanel>
 
         <!--Row 1-->
@@ -51,9 +53,9 @@
             <!--Username-->
             <StackPanel Orientation="Horizontal">
                 <TextBox x:Name="usernameBox"
-                         FontFamily="Helvetica"
+                         FontFamily="Calibri"
                          FontWeight="Light"
-                         FontSize="22"
+                         FontSize="30"
                          Text="Username"
                          Foreground="White"
                          Background="Transparent"
@@ -61,19 +63,21 @@
                          HorizontalAlignment="Center"
                          HorizontalContentAlignment="Left"
                          Opacity="0.5"
-                         Height="25"
+                         Height="35"
                          Width="275"
-                         Margin="100 0 0 0"
+                         Margin="100,0,0,0"
                          PreviewMouseLeftButtonDown="ClearUsername"
                     />
-                <Image Source="/Images/username.png" Width="25"/>
+                <Image Source="/Images/username.png" Width="35"/>
+
 
             </StackPanel>
             <!--Underline for username-->
             <Border Width="300"
                     Height="2"
                     Background="White"
-                    Opacity="1"/>
+                    Opacity="1"
+                    Margin="50,0,0,0"/>
 
             <!--Password-->
             <StackPanel Orientation="Horizontal">
@@ -81,8 +85,8 @@
                          x:Name="passwordBox"
                          FontFamily="Helvetica"
                          FontWeight="Light"
-                         FontSize="22"
-                         Password="Username"
+                         FontSize="30"
+                         Password="Password"
                          Foreground="White"
                          Background="Transparent"
                          BorderThickness="0"
@@ -91,42 +95,46 @@
                          Opacity="0.5"
                          Height="25"
                          Width="275"
-                         Margin="100 0 0 0"
+                         Margin="100,10,0,0"
                          PreviewMouseLeftButtonDown="ClearPassword"
                     />
-                <Image Source="/Images/password.png" Width="25"/>
+                <Image Source="/Images/password.png" Width="35"/>
+                
             </StackPanel>
-
+            
             <!--Underline for password-->
             <Border Width="300"
                     Height="2"
                     Background="White"
-                    Opacity="1"/>
+                    Opacity="1"
+                    Margin="50,0,0,0"/>
 
             <!-- Buttons -->
             <StackPanel Orientation="Horizontal" Margin="0 50 0 0">
                 <Button Click="Login"
-                        Width="100"
-                        Height="40"
+                        Width="130"
+                        Height="50"
                         Content="LOGIN"
-                        Margin="100 0 0 0"
-                        FontSize="16"/>
+                        Margin="250,0,0,0"
+                        FontSize="26"/>
                 <Button Click="UserForm"
-                        Width="100"
-                        Height="40"
+                        Width="130"
+                        Height="50"
                         Content="REGISTER"
-                        Margin="100 0 100 0"
-                        FontSize="16"/>
+                        Margin="250,0,100,0"
+                        FontSize="26"/>
             </StackPanel>
-            
+
             <!--Footer-->
-            <Label Content="Veer Singh © 2021 | Built with ❤"
+            <Label Content="Instant Messenger"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Bottom"
-                   Margin="0,26,0,0"
+                   Margin="0,80,0,0"
                    Height="30"
                    Foreground="White"
                    Opacity="0.5"/>
+            <Image Source= "/logo.png" Width="200" Height="200" Margin="-900,-150,0,0"/>
         </StackPanel>
+       
     </Grid>
 </Window>

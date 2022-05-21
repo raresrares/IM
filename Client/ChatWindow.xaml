@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Client"
         mc:Ignorable="d"
-        Title="ChatWindow" Height="400" Width="500" Loaded="ChatWindowLoaded" Closed="Window_Closed"
+        Title="ChatWindow" Height="600" Width="1000" Loaded="ChatWindowLoaded" Closed="Window_Closed"
         AllowsTransparency="True" Background="Transparent"
         WindowStyle="None" ResizeMode="NoResize"
         MouseDown="Window_MouseDown">
@@ -14,8 +14,8 @@
         <Border CornerRadius="15" Grid.RowSpan="2">
             <Border.Background>
                 <LinearGradientBrush>
-                    <GradientStop Color="#02aab0" Offset="0.0"/>
-                    <GradientStop Color="#00cdac" Offset="1.0" />
+                    <GradientStop Color="#FF8303" Offset="0.0"/>
+                    <GradientStop Color="#F8B195" Offset="1.0" />
                 </LinearGradientBrush>
             </Border.Background>
         </Border>
@@ -26,65 +26,75 @@
                 <!--Connect Button-->
                 <Button x:Name="btnConnect"
                         Content="Connect"
-                        Height="40"
-                        Margin="10,10,0,0"
-                        FontFamily="Helvetica"
-                        FontSize="16"
-                        Width="68"
-                        Click="btnConnect_Click"/>
+                        Height="50"
+                        Margin="30,10,0,0"
+                        FontFamily="Calibri"
+                        FontSize="30"
+                        Width="150"
+                        Click="btnConnect_Click" RenderTransformOrigin="0.846,2.18"/>
 
                 <!--You are signed in as ...-->
                 <TextBlock x:Name="connectedToTheServerAs"
                            Text=""
-                           FontSize="16"
-                           FontFamily="Helvetica"
-                           Width="352"
+                           FontSize="26"
+                           FontFamily="Calibri"
+                           Width="150"
                            TextWrapping="Wrap"
                            VerticalAlignment="Center"
                            HorizontalAlignment="Center"
                            TextAlignment="Center"
-                           Margin="10, 10,0,0"
+                           Margin="10,0,0,0"
                            Foreground="Black"
                            FontWeight="Bold"/>
 
                 <!--Close button-->
                 <Button Click="CloseButton_Click"
-                        Height="40"
-                        Width="40"
+                        Height="30"
+                        Width="30"
                         Content="╳"
-                        FontSize="20"
-                        Margin="10 10 0 0"/>
+                        FontSize="10"
+                        Margin="610,0,0,0"/>
             </StackPanel>
+            <Label Content="Chat Log:"
+                       FontSize="24"
+                       FontFamily="Calibri"
+                       Foreground="White"
+                       Height="60"
+                       Width="140"
+                       Margin="-780,25,0,0"/>
+
+            <Label Content="List of"
+                       Grid.Column="0"
+                       FontSize="24"
+                       FontFamily="Calibri"
+                       Foreground="White"
+                       Width="100"
+                       Height="60"
+                       Margin="800,-80,0,0"/>
+            <Label Content="Friends"
+                       Grid.Column="0"
+                       FontSize="24"
+                       FontFamily="Calibri"
+                       Foreground="White"
+                       Width="120"
+                       Height="60"
+                       Margin="810,-40,0,0"/>
 
             <!--List of users Label-->
             <StackPanel Orientation="Horizontal">
 
-                <Label Content="Chat Log:"
-                       FontSize="16"
-                       FontFamily="Helvetica"
-                       Foreground="White"
-                       Height="30"
-                       Width="90"
-                       Margin="10,10,0,0"/>
-
-                <Label Content="List of Users:"
-                       FontSize="16"
-                       FontFamily="Helvetica"
-                       Foreground="White"
-                       Width="100"
-                       Height="30"
-                       Margin="295,10,0,0"/>
-            </StackPanel>
+            
 
             <!--Main box and User list-->
-            <StackPanel Orientation="Horizontal">
+            
                 <TextBox x:Name="txtStatus"
-                         FontFamily="Helvetica"
+                         FontFamily="Calibri"
                          FontSize="16"
-                         Height="160" Margin="10,10,0,0"
+                         Height="250" 
+                         Margin="40,-20,0,0"
                          TextWrapping="Wrap"
                          Text=""
-                         Width="380"
+                         Width="700"
                          HorizontalAlignment="Left"
                          VerticalAlignment="Top"
                          Background="Transparent"
@@ -93,11 +103,11 @@
                          IsReadOnly="True"/>
 
                 <ListBox Name="listbox"
-                         FontFamily="Helvetica"
+                         FontFamily="Calibri"
                          FontSize="16"
-                         Height="160"
-                         Margin="10,10,0,0"
-                         Width="90"
+                         Height="220"
+                         Margin="80,10,0,0"
+                         Width="140"
                          VerticalAlignment="Top"
                          Background="Transparent"
                          BorderThickness="3"
@@ -105,26 +115,26 @@
             </StackPanel>
 
             <Label Content="Type your message here:"
-                   FontSize="16"
-                   FontFamily="Helvetica"
+                   FontSize="24"
+                   FontFamily="Calibri"
                    Foreground="White"
                    Width="340"
-                   Height="30"
-                   Margin="10,0,0,0"
+                   Height="45"
+                   Margin="40,10,0,0"
                    HorizontalAlignment="Left"/>
 
             <!--Text message box, send button, browse button, clear chat log-->
             <StackPanel Orientation="Horizontal">
                 <!--Text message box-->
                 <TextBox x:Name="txtMessage"
-                         FontSize="16"
-                         FontFamily="Helvetica"
-                         Height="60"
-                         Margin="10,0,0,0"
+                         FontSize="20"
+                         FontFamily="Calibri"
+                         Height="80"
+                         Margin="40,0,0,0"
                          HorizontalAlignment="Left"
                          VerticalAlignment="Top"
                          TextWrapping="Wrap"
-                         Width="270"
+                         Width="560"
                          PreviewMouseLeftButtonDown="txtMessage_PreviewMouseLeftButtonDown"
                          Background="Transparent"
                          BorderThickness="3"
@@ -133,39 +143,51 @@
                 <!--Send button-->
                 <Button x:Name="btnSend"
                         Content="Send"
-                        FontSize="16"
-                        Height="60"
-                        Margin="10,0,0,0"
+                        FontSize="24"
+                        FontFamily="Calibri"
+                        Height="85"
+                        Margin="35,-1,0,0"
                         VerticalAlignment="Top"
-                        Width="60"
+                        Width="85"
                         Click="btnSend_Click"/>
 
                 <!--Browse button-->
                 <Button Content="Browse"
                         HorizontalAlignment="Left"
-                        Height="60"
-                        Margin="10,0,0,0"
+                        Height="85"
+                        Margin="35,-1,0,0"
+                        FontSize="24"
                         VerticalAlignment="Top"
-                        Width="60"
+                        FontFamily="Calibri"
+                        Width="85"
                         Click="btnBrowse_Click"/>
-
-                <!--Clear chat log button-->
                 <Button x:Name="Clear"
                         Content="Clear"
-                        FontSize="16"      
-                        Height="60"
-                        Width="60"
-                        Margin="10,0,0,0"
-                        VerticalAlignment="Top"
-                        Click="Click_clear"/>
-            </StackPanel>
+                        FontFamily="Calibri"
+                        Margin="31,6,0,0"
+                        FontSize="24"      
+                        Height="85"
+                        Width="85"
+                        Click="Click_clear" RenderTransformOrigin="5.112,5.239">
+                    <Button.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="-0.328"/>
+                            <TranslateTransform X="9.874" Y="-9.955"/>
+                        </TransformGroup>
+                    </Button.RenderTransform>
+                </Button>
 
+                <!--Clear chat log button-->
+            </StackPanel>
+            <Image Source= "/logo.png" Width="100" Height="100" Margin="-950,-25,0,0"/>
             <!--Footer-->
-            <Label Content="Veer Singh © 2021 | Built with ❤"
+            <Label Content="Instant Messenger"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Bottom"
-                   Margin="0,20,0,0"
-                   Height="30"
+                   Margin="0,-1000,0,0"
+                   Height="50"
                    Foreground="White"
                    Opacity="0.5"/>
 
