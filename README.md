@@ -17,6 +17,11 @@ New User Form
   <img src="Assets/register.png" width = 60%>
 </p>
 
+Chat Window
+<p align="left">
+  <img src="Assets/chatwindow.png" width = 60%>
+</p>
+
 Database Image - As we can see once we create users, we can check their username, password and their login.
 <p align="left">
   <img src="Assets/[4]Database_Image.PNG" width = 60%>
