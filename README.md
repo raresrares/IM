@@ -4,7 +4,7 @@ This is a wpf chat application. It lets users make accounts and log into their a
 ## Some screenshots
 Server
 <p align="left">
-  <img src="Assets/[1]Server.PNG" width = 60%>
+  <img src="Assets/server.PNG" width = 100%>
 </p>
 
 Login Page
