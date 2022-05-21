@@ -4,17 +4,22 @@ This is a wpf chat application. It lets users make accounts and log into their a
 ## Some screenshots
 Server
 <p align="left">
-  <img src="Assets/[1]Server.PNG" width = 60%>
+  <img src="Assets/server.png" width = 60%>
 </p>
 
 Login Page
 <p align="left">
-  <img src="Assets/[2]Login_page.PNG" width = 60%>
+  <img src="Assets/login.png" width = 60%>
 </p>
 
 New User Form
 <p align="left">
-  <img src="Assets/[3]New_user_form.PNG" width = 60%>
+  <img src="Assets/register.png" width = 60%>
+</p>
+
+Chat Window
+<p align="left">
+  <img src="Assets/chatwindow.png" width = 60%>
 </p>
 
 Database Image - As we can see once we create users, we can check their username, password and their login.
