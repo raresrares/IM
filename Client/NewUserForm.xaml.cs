@@ -35,7 +35,8 @@ namespace Client
             User user = new User()
             {
                 UserName = this.newuser.Text,
-                Password = this.newpassword.Password
+                Password = this.newpassword.Password,
+                isLoggedIn = 0
             };
             
             // Check if the User already exists

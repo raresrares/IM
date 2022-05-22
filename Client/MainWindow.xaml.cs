@@ -17,6 +17,9 @@ using System.Data;
 using System.Net;
 using System.Net.Sockets;
 using SimpleTCP;
+using FireSharp.Config;
+using FireSharp.Response;
+using FireSharp.Interfaces;
 
 namespace Client
 {
@@ -27,56 +30,107 @@ namespace Client
             InitializeComponent();
         }
 
-        private void CheckLogin(string username, string password) //Checks the login info provided
+        IFirebaseConfig fCon = new FirebaseConfig()
         {
+            AuthSecret = "3WCno5lT6Er5C3MMpM9GvhvO2F7xitnH1McV1ttK",
+            BasePath = "https://instant-messenger-7ba8c-default-rtdb.europe-west1.firebasedatabase.app/"
+        };
+
+        IFirebaseClient client;
+
+        private void ConnectClient()
+        {
+            client = new FireSharp.FirebaseClient(fCon);
+        }
+
+        private async void CheckLogin(string username, string password) //Checks the login info provided
+        {
+            ConnectClient();
             string checkUser = null;
             string checkPassword = null;
             int isLogged = 0;
 
             //To create a connection to the local database
-            String connectionString = "datasource = localhost; username = root; password = 1234; database = loginnames";
-            MySqlConnection connection = new MySqlConnection(connectionString);
-            MySqlCommand cmd = new MySqlCommand("SELECT * FROM users WHERE username = '" + username + "';", connection);
-            MySqlDataReader reader;
+            //String connectionString = "datasource = localhost; username = root; password = 1234; database = loginnames";
+            //MySqlConnection connection = new MySqlConnection(connectionString);
+            //MySqlCommand cmd = new MySqlCommand("SELECT * FROM users WHERE username = '" + username + "';", connection);
+            //MySqlDataReader reader;
 
-            try
+            User user = new User()
             {
-                connection.Open();
-                reader = cmd.ExecuteReader();
+                UserName = this.usernameBox.Text,
+                Password = this.passwordBox.Password,
+                isLoggedIn = 1
+            };
 
-                while (reader.Read())
-                {
-                    checkUser = reader[0].ToString();
-                    checkPassword = reader[1].ToString();
-                    isLogged = (reader[2].ToString() == "1" ? 1 : 0);
-                }
+            // Check if the User exists
+            FirebaseResponse r = await client.GetAsync("UserList/" + this.usernameBox.Text);
 
-                reader.Close();
+            User u = r.ResultAs<User>();
 
-                if (checkUser != null && checkUser.Equals(username) && checkPassword.Equals(password) && isLogged == 0)
+            if (u != null)
+            {
+                if (u.isLoggedIn == 1)
                 {
-                    MySqlCommand upd = new MySqlCommand("UPDATE users SET isLogged='1' WHERE username='" + username + "';", connection);
-                    upd.ExecuteNonQuery();
-                    OpenChatWindow();
-                }
-                else
+                    MessageBox.Show("The user " + this.usernameBox.Text + " is already logged in!");
+                } else
                 {
-                    if (isLogged == 1) MessageBox.Show("User already logged in!");
-                    else
+                    u.isLoggedIn = 1;
+
+                    //TODO CHANGE LOGIN STATUS IN FIREBASE
+
+                    if (this.passwordBox.Password == u.Password)
                     {
-                        MessageBox.Show("Incorrect user or pass!");
-                        this.usernameBox.Text = ""; //Changes username box to blank
-                        this.passwordBox.Password = ""; //Changes password box to blank
+                        OpenChatWindow();
+                    } else
+                    {
+                        MessageBox.Show("The password " + this.passwordBox.Password + " is wrong!");
                     }
                 }
-
-                connection.Close();
-
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("The user " + this.usernameBox.Text + " does not exist! Register first!");
             }
+
+            //try
+            //{
+            //    connection.Open();
+            //    reader = cmd.ExecuteReader();
+
+            //    while (reader.Read())
+            //    {
+            //        checkUser = reader[0].ToString();
+            //        checkPassword = reader[1].ToString();
+            //        isLogged = (reader[2].ToString() == "1" ? 1 : 0);
+            //    }
+
+            //    reader.Close();
+
+            //    if (checkUser != null && checkUser.Equals(username) && checkPassword.Equals(password) && isLogged == 0)
+            //    {
+            //        MySqlCommand upd = new MySqlCommand("UPDATE users SET isLogged='1' WHERE username='" + username + "';", connection);
+            //        upd.ExecuteNonQuery();
+            //        OpenChatWindow();
+            //    }
+            //    else
+            //    {
+            //        if (isLogged == 1) MessageBox.Show("User already logged in!");
+            //        else
+            //        {
+            //            MessageBox.Show("Incorrect user or pass!");
+            //            this.usernameBox.Text = ""; //Changes username box to blank
+            //            this.passwordBox.Password = ""; //Changes password box to blank
+            //        }
+            //    }
+
+            //    connection.Close();
+
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message);
+            //}
         }
 
         private void Login (object sender, RoutedEventArgs e) //Sends the username and password information to check
