@@ -50,12 +50,6 @@ namespace Client
             string checkPassword = null;
             int isLogged = 0;
 
-            //To create a connection to the local database
-            //String connectionString = "datasource = localhost; username = root; password = 1234; database = loginnames";
-            //MySqlConnection connection = new MySqlConnection(connectionString);
-            //MySqlCommand cmd = new MySqlCommand("SELECT * FROM users WHERE username = '" + username + "';", connection);
-            //MySqlDataReader reader;
-
             User user = new User()
             {
                 UserName = this.usernameBox.Text,
@@ -92,45 +86,6 @@ namespace Client
             {
                 MessageBox.Show("The user " + this.usernameBox.Text + " does not exist! Register first!");
             }
-
-            //try
-            //{
-            //    connection.Open();
-            //    reader = cmd.ExecuteReader();
-
-            //    while (reader.Read())
-            //    {
-            //        checkUser = reader[0].ToString();
-            //        checkPassword = reader[1].ToString();
-            //        isLogged = (reader[2].ToString() == "1" ? 1 : 0);
-            //    }
-
-            //    reader.Close();
-
-            //    if (checkUser != null && checkUser.Equals(username) && checkPassword.Equals(password) && isLogged == 0)
-            //    {
-            //        MySqlCommand upd = new MySqlCommand("UPDATE users SET isLogged='1' WHERE username='" + username + "';", connection);
-            //        upd.ExecuteNonQuery();
-            //        OpenChatWindow();
-            //    }
-            //    else
-            //    {
-            //        if (isLogged == 1) MessageBox.Show("User already logged in!");
-            //        else
-            //        {
-            //            MessageBox.Show("Incorrect user or pass!");
-            //            this.usernameBox.Text = ""; //Changes username box to blank
-            //            this.passwordBox.Password = ""; //Changes password box to blank
-            //        }
-            //    }
-
-            //    connection.Close();
-
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message);
-            //}
         }
 
         private void Login (object sender, RoutedEventArgs e) //Sends the username and password information to check
