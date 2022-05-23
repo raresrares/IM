@@ -11,17 +11,17 @@ namespace Client
 {
     public partial class ChatWindow : Window
     {
-        private string username; 
+        /*private string username; 
         Boolean ifFileSelected = false; //boolean tells us if browse button is selected
         FileInfo fi; //stores file name and extension for the file to be saved
         SimpleTcpClient client; //Creates the client variable
-        OpenFileDialog op; //Allows us to select files from the computer
+        OpenFileDialog op; //Allows us to select files from the computer*/
 
         public ChatWindow(string usr)
         {
             InitializeComponent();
 
-            username = usr;
+            /*username = usr;
             this.Title = usr; //sets title of window to the username
 
             string currentPath = "C:\\Chat Application files"; //Stores the files for the user in this directory
@@ -30,19 +30,19 @@ namespace Client
             if (!Directory.Exists(currentPath + "/" + username))
             {
                 Directory.CreateDirectory(currentPath + "/" + username);
-            }
+            }*/
         }
 
-        private void ChatWindowLoaded(object sender, EventArgs e)
+        /*private void ChatWindowLoaded(object sender, EventArgs e)
         {
             client = new SimpleTcpClient();
             client.StringEncoder = Encoding.UTF8;
             client.DataReceived += Client_DataReceived;
-        }
+        }*/
 
         private void btnConnect_Click(object sender, RoutedEventArgs e)
         {
-            try
+            /*try
             {
                 client.Connect("127.0.0.1", 1111);
                 client.Write(">>> " + username + " just joined! <<<\n");
@@ -53,12 +53,12 @@ namespace Client
             {
                 System.Windows.MessageBox.Show("Server is not active");
                 btnConnect.IsEnabled = true;
-            }
+            }*/
         }
 
         private void Client_DataReceived(object sender, SimpleTCP.Message e)
         {
-            if (e.MessageString.Length > 4 && e.MessageString.Contains("list"))
+            /*if (e.MessageString.Length > 4 && e.MessageString.Contains("list"))
             {
                 String msg = e.MessageString.Substring(4, e.MessageString.Length - 4);
                 string[] listClients = new string[msg.Split(':').Length - 2];
@@ -102,12 +102,12 @@ namespace Client
                     txtStatus.Text += "";
                 });
 
-            }
+            }*/
         }
 
         private void btnSend_Click(object sender, RoutedEventArgs e)
         {
-            if (btnConnect.IsEnabled)
+           /* if (btnConnect.IsEnabled)
             {
                 System.Windows.MessageBox.Show("Please connect to the local server!");
             }
@@ -134,13 +134,13 @@ namespace Client
                 System.Windows.MessageBox.Show("Please select someone to send the message to!");
             }
 
-            txtMessage.Text = ""; //Empties the text message box
+            txtMessage.Text = ""; //Empties the text message box*/
 
         }
 
         private void btnBrowse_Click(object sender, RoutedEventArgs e) //Browse button
         {
-            if (!btnConnect.IsEnabled) //if connect button is not enabled which means we are connected to a server
+            /*if (!btnConnect.IsEnabled) //if connect button is not enabled which means we are connected to a server
             {
                 op = new OpenFileDialog();
                 if (op.ShowDialog() == System.Windows.Forms.DialogResult.OK)
@@ -152,21 +152,21 @@ namespace Client
             } else
             {
                 System.Windows.MessageBox.Show("Please connect to the local server!");
-            }
+            }*/
         }
 
         private void txtMessage_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e) //When we press the message text box
         {
-            if (!btnConnect.IsEnabled)
+            /*if (!btnConnect.IsEnabled)
                 client.WriteLine("list"); //if the user is connected to a server, writes "list" to the server
             else
-                System.Windows.MessageBox.Show("Please connect to the local server!");
+                System.Windows.MessageBox.Show("Please connect to the local server!");*/
 
         }
 
         private void Window_Closed(object sender, EventArgs e) //Logs off the user when window is closed
         {
-            if (!btnConnect.IsEnabled) //if button is not pressed and if we we are connected
+            /*if (!btnConnect.IsEnabled) //if button is not pressed and if we we are connected
             {
                 client.Write(username + ":closed");
                 client.TcpClient.Close();
@@ -187,7 +187,7 @@ namespace Client
             catch (Exception ex)
             {
                 System.Windows.MessageBox.Show(ex.Message);
-            }
+            }*/
         }
 
         private void Click_clear(object sender, EventArgs e) //Clears the chat log
@@ -205,7 +205,7 @@ namespace Client
 
         private void CloseButton_Click(object sender, RoutedEventArgs e) //Closes the app when user clicks the X button, also logs out the user
         {
-            String connectionString = "datasource = localhost; username = root; password = 1234; database = loginnames";
+            /*String connectionString = "datasource = localhost; username = root; password = 1234; database = loginnames";
             MySqlConnection connection = new MySqlConnection(connectionString);
 
             try
@@ -220,7 +220,7 @@ namespace Client
             catch (Exception ex)
             {
                 System.Windows.MessageBox.Show(ex.Message);
-            }
+            }*/
             Close();
         }
     }

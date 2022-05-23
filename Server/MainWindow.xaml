@@ -8,8 +8,7 @@
         Title="Sever" Height="600" Width="1000"
         AllowsTransparency="True" Background="Transparent"
         WindowStyle="None" ResizeMode="NoResize"
-        MouseDown="Window_MouseDown"
-        Loaded="ServerLoaded">
+        MouseDown="Window_MouseDown">
     <Grid>
         <!--Background color and rounded corners-->
         <Border CornerRadius="15" Grid.RowSpan="2">
