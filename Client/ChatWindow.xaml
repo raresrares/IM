@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Client"
         mc:Ignorable="d"
-        Title="ChatWindow" Height="600" Width="1000"
+        Title="ChatWindow" Height="600" Width="1000" Loaded="ChatWindowLoaded" Closed="Window_Closed"
         AllowsTransparency="True" Background="Transparent"
         WindowStyle="None" ResizeMode="NoResize"
         MouseDown="Window_MouseDown">
@@ -34,18 +34,6 @@
                         Click="btnConnect_Click" RenderTransformOrigin="0.846,2.18"/>
 
                 <!--You are signed in as ...-->
-                <TextBlock x:Name="connectedToTheServerAs"
-                           Text=""
-                           FontSize="26"
-                           FontFamily="Montserrat"
-                           Width="150"
-                           TextWrapping="Wrap"
-                           VerticalAlignment="Center"
-                           HorizontalAlignment="Center"
-                           TextAlignment="Center"
-                           Margin="10,0,0,0"
-                           Foreground="Black"
-                           FontWeight="Bold"/>
 
                 <!--Close button-->
                 <Button Click="CloseButton_Click"
@@ -53,7 +41,7 @@
                         Width="30"
                         Content="╳"
                         FontSize="10"
-                        Margin="610,0,0,0"/>
+                        Margin="760,0,0,0"/>
             </StackPanel>
             <Label Content="Chat Log:"
                        FontSize="24"
@@ -83,10 +71,10 @@
             <!--List of users Label-->
             <StackPanel Orientation="Horizontal">
 
-            
 
-            <!--Main box and User list-->
-            
+
+                <!--Main box and User list-->
+
                 <TextBox x:Name="txtStatus"
                          FontFamily="Montserrat"
                          FontSize="16"
@@ -131,10 +119,9 @@
                          FontFamily="Montserrat"
                          Height="80"
                          Margin="40,0,0,0"
-                         HorizontalAlignment="Left"
                          VerticalAlignment="Top"
                          TextWrapping="Wrap"
-                         Width="560"
+                         Width="699"
                          PreviewMouseLeftButtonDown="txtMessage_PreviewMouseLeftButtonDown"
                          Background="Transparent"
                          BorderThickness="3"
@@ -152,15 +139,6 @@
                         Click="btnSend_Click"/>
 
                 <!--Browse button-->
-                <Button Content="Browse"
-                        HorizontalAlignment="Left"
-                        Height="85"
-                        Margin="35,-1,0,0"
-                        FontSize="24"
-                        VerticalAlignment="Top"
-                        FontFamily="Montserrat"
-                        Width="85"
-                        Click="btnBrowse_Click"/>
                 <Button x:Name="Clear"
                         Content="Clear"
                         FontFamily="Montserrat"

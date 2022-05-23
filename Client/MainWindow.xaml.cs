@@ -43,12 +43,12 @@ namespace Client
             client = new FireSharp.FirebaseClient(fCon);
         }
 
-        private async void CheckLogin(string username, string password) //Checks the login info provided
+        /**
+         * Checks the login info provided.
+         */
+        private async void CheckLogin(string username, string password) 
         {
             ConnectClient();
-            string checkUser = null;
-            string checkPassword = null;
-            int isLogged = 0;
 
             User user = new User()
             {
@@ -67,18 +67,20 @@ namespace Client
                 if (u.isLoggedIn == 1)
                 {
                     MessageBox.Show("The user " + this.usernameBox.Text + " is already logged in!");
-                } else
+                } 
+                else
                 {
-                    u.isLoggedIn = 1;
-
-                    //TODO CHANGE LOGIN STATUS IN FIREBASE
-
                     if (this.passwordBox.Password == u.Password)
                     {
+                        u.isLoggedIn = 1;
+
+                        SetResponse response = await client.SetAsync("UserList/" + u.UserName, u);
+                        
                         OpenChatWindow();
-                    } else
+                    }
+                    else
                     {
-                        MessageBox.Show("The password " + this.passwordBox.Password + " is wrong!");
+                        MessageBox.Show("The password is incorrect!");
                     }
                 }
             }
@@ -88,7 +90,7 @@ namespace Client
             }
         }
 
-        private void Login (object sender, RoutedEventArgs e) //Sends the username and password information to check
+        private void Login (object sender, RoutedEventArgs e)
         {
             String user = this.usernameBox.Text;
             String pass = this.passwordBox.Password;
@@ -96,31 +98,31 @@ namespace Client
             CheckLogin(user, pass);
         }
 
-        private void ClearUsername(object sender, RoutedEventArgs e) //Clears the username box when clicked on
+        private void ClearUsername(object sender, RoutedEventArgs e)
         {
             this.usernameBox.Text = ""; 
         }
 
-        private void ClearPassword(object sender, MouseButtonEventArgs e) //Clears the password box when clicked on
+        private void ClearPassword(object sender, MouseButtonEventArgs e)
         {
             this.passwordBox.Password = "";
         }
 
-        private void UserForm(object sender, RoutedEventArgs e) //Takes the user to the NewUserForm
+        private void UserForm(object sender, RoutedEventArgs e)
         {
             NewUserForm newUser = new NewUserForm();
             newUser.Show();
             Close();
         }
 
-        private void OpenChatWindow() //On successful login takes the user to the ChatWindow
+        private void OpenChatWindow()
         {
             ChatWindow chatWindow = new ChatWindow(this.usernameBox.Text);
             chatWindow.Show();
             Close();
         }
 
-        private void Window_MouseDown(object sender, MouseButtonEventArgs e) //Lets us drag the window with the mouse
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
             {
@@ -128,7 +130,7 @@ namespace Client
             }
         }
 
-        private void CloseButton_Click(object sender, RoutedEventArgs e) //Closes the application when we click the X button
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
             Close();
         }

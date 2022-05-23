@@ -28,7 +28,10 @@ namespace Client
             InitializeComponent();
         }
 
-        private async void Submit(object sender, RoutedEventArgs e) //When the user presses the submit button
+        /**
+         * When the user presses the Submit button (Registering a new user)
+         */
+        private async void Submit(object sender, RoutedEventArgs e)
         {
             ConnectClient();
 
